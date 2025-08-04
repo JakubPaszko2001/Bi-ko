@@ -5,9 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import BathroomImg from "../Assets/bathroom.png"; // <-- Zmień na swoją ścieżkę
-import Painting from "../Assets/painting.png"; // <-- Zmień na swoją ścieżkę
-import Elewacje from "../Assets/elewacje.png"; // <-- Zmień na swoją ścieżkę
+import BathroomImg from "../Assets/bathroom.png";
+import Painting from "../Assets/painting.png";
+import Elewacje from "../Assets/elewacje.png";
 
 const Services = () => {
   const services = [
@@ -26,7 +26,10 @@ const Services = () => {
   ];
 
   return (
-    <div id="services" className="bg-[#1f3622] pb-16">
+    <div className="bg-[#1f3622] pb-16 relative">
+      {/* Niewidoczny punkt kotwicy */}
+      <span id="services" className="block absolute -top-20" aria-hidden="true"></span>
+
       <h2 className="text-white text-4xl md:text-5xl font-bold text-center mb-10">
         Nasze usługi
       </h2>
