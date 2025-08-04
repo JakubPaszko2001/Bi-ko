@@ -55,10 +55,10 @@ const DesktopNav = () => {
         {/* NAVIGATION */}
         <ul className="flex items-center text-white font-semibold text-sm xl:text-base 2xl:text-lg uppercase">
           <li className="px-4">
-            <a href="#main" className="transition hover:opacity-80">O nas</a>
+            <a href="#info" className="transition hover:opacity-80">O nas</a>
           </li>
           <li className="px-4 border-l-2 border-white/60">
-            <a href="#offer" className="transition hover:opacity-80">Usługi</a>
+            <a href="#services" className="transition hover:opacity-80">Usługi</a>
           </li>
           <li className="px-4 border-l-2 border-white/60">
             <a href="#contact" className="transition hover:opacity-80">Kontakt</a>

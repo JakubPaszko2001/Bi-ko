@@ -1,7 +1,7 @@
 const NavUl = ({ menuOpen, handleClose }) => {
   const liMenu = [
-    { name: "O nas", span: true, ref: "main" },
-    { name: "Oferta", span: true, ref: "offer" },
+    { name: "O nas", span: true, ref: "info" },
+    { name: "Oferta", span: true, ref: "services" },
     { name: "Kontakt", span: false, ref: "contact" },
   ];
 

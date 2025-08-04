@@ -26,7 +26,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="bg-[#1f3622] pb-16">
+    <div id="services" className="bg-[#1f3622] pb-16">
       <h2 className="text-white text-4xl md:text-5xl font-bold text-center mb-10">
         Nasze usługi
       </h2>

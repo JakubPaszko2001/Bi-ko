@@ -3,7 +3,7 @@ import building from '../Assets/building2.png'
 
 const Info = () => {
   return (
-    <div className='relative w-full min-h-screen bg-[#1f3622] text-white flex flex-col items-center justify-center text-center px-[20px]'>
+    <div id="info" className='relative w-full min-h-screen bg-[#1f3622] text-white flex flex-col items-center justify-center text-center px-[20px]'>
         <h1 className='text-5xl md:text-6xl font-bold mb-2'>
             Witaj w firmie
             <br />
