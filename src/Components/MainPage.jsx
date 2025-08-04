@@ -19,9 +19,11 @@ const MainPage = () => {
             <br />
             Dla tych, którzy cenią jakość i styl.
           </h2>
-          <button className="bg-[#B68646] text-white mt-2 px-4 py-2 md:px-8 md:py-3 rounded-[10px] font-semibold text-sm md:text-lg hover:bg-[#a8753e] transition">
-            Zobacz ofertę
-          </button>
+          <a href='#services'>
+            <button className="bg-[#B68646] text-white mt-2 px-4 py-2 md:px-8 md:py-3 rounded-[10px] font-semibold text-sm md:text-lg hover:bg-[#a8753e] transition">
+              Zobacz ofertę
+            </button>
+          </a>
         </div>
       </div>
     </div>
