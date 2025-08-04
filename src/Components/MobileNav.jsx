@@ -2,37 +2,50 @@ import React, { useState, useRef, useEffect } from "react";
 import NavUl from "./NavUl";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import gsap from "gsap";
-import Logo from "../Assets/Logo_Bialgruz.webp";
+import Logo from "../Assets/bińko-logo-biale.png"; // Zmień ścieżkę jeśli trzeba
 
 const MobileNav = () => {
-  gsap.registerPlugin();
   const [menuOpen, setMenuOpen] = useState(false);
   const asideRef = useRef();
   const navRef = useRef();
 
-  function handleMenuOpen() {
+  const handleMenuOpen = () => {
     setMenuOpen(true);
     gsap.to(asideRef.current, { y: "0%", duration: 0.8, ease: "power1.inOut" });
-  }
+  };
 
-  function handleMenuClose() {
+  const handleMenuClose = () => {
     setMenuOpen(false);
     gsap.to(asideRef.current, {
       y: "-100%",
       duration: 0.8,
       ease: "power1.inOut",
     });
-  }
+  };
 
   useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    nav.classList.add("transition-all", "duration-500", "ease-in-out");
+
     const handleScroll = () => {
-      if (!navRef.current) return;
       if (window.scrollY > 0) {
-        navRef.current.classList.remove("bg-transparent");
-        navRef.current.classList.add("bg-black");
+        nav.classList.remove("bg-transparent");
+        nav.classList.add(
+          "bg-white/10",              // lekko mleczna
+          "backdrop-blur-md",         // efekt glass
+          "shadow-md",
+          "border-white/10"
+        );
       } else {
-        navRef.current.classList.add("bg-transparent");
-        navRef.current.classList.remove("bg-black");
+        nav.classList.add("bg-transparent");
+        nav.classList.remove(
+          "bg-white/10",
+          "backdrop-blur-md",
+          "shadow-md",
+          "border-white/10"
+        );
       }
     };
 
@@ -44,26 +57,30 @@ const MobileNav = () => {
     <nav className="xl:hidden">
       <div
         ref={navRef}
-        className="fixed top-0 left-0 w-screen h-16 bg-transparent border-b-2 border-yellow-500 z-40 transition-colors duration-300"
+        className="fixed top-0 left-0 w-screen h-20 z-40 bg-transparent rounded-b-3xl overflow-hidden transition-all duration-500 ease-in-out"
       >
+        {/* LOGO */}
         <img
-          className="w-1/2 max-w-[280px] absolute left-[20px] top-1/2 transform -translate-y-1/2"
+          className="w-1/3 max-w-[240px] absolute left-[20px] top-1/2 transform -translate-y-1/2"
           loading="eager"
           src={Logo}
-          alt="Abyss Logo"
+          alt="Bińko-Bud Logo"
         />
+
+        {/* BURGER */}
         <button
           aria-label="Open Menu"
           onClick={handleMenuOpen}
-          className="fixed top-5 right-5"
+          className="fixed top-7 right-5"
         >
-          <IoMdMenu className="w-[25px] h-[25px] text-yellow-500" />
+          <IoMdMenu className="w-[28px] h-[28px] text-white" />
         </button>
       </div>
 
+      {/* MENU */}
       <aside
         ref={asideRef}
-        className="box fixed top-0 right-0 w-full h-full bg-black -translate-y-[100%] z-50"
+        className="fixed top-0 right-0 w-full h-full bg-[#1f3622] -translate-y-[100%] z-50"
       >
         <button
           aria-label="Close Menu"
@@ -71,7 +88,7 @@ const MobileNav = () => {
           onClick={handleMenuClose}
           className="absolute top-10 right-10"
         >
-          <IoMdClose className="w-[50px] h-[50px] text-yellow-500" />
+          <IoMdClose className="w-[50px] h-[50px] text-white" />
         </button>
         <NavUl menuOpen={menuOpen} handleClose={handleMenuClose} />
       </aside>

@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Main': ['Montserrat', 'sans-serif'],
+        'Main': ['Playfair', 'sans-serif'],
       },
     },
   },
