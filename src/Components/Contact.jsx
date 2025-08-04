@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="bg-[#1f3622] text-white py-12 px-[20px] flex flex-col items-center justify-center relative">
+    <div className="bg-[#1f3622] text-white pt-12 px-[20px] flex flex-col items-center justify-center relative">
       {/* Niewidoczny anchor do przewijania z offsetem */}
       <span id="contact" className="block absolute -top-20" aria-hidden="true"></span>
 
@@ -63,6 +63,11 @@ const Contact = () => {
         <strong>Email:</strong> danielczakjoanna53@gmail.com &nbsp;|&nbsp;
         <strong>Tel:</strong> 883 925 596
       </p>
+
+      {/* Stopka jak na screenie */}
+      <footer className="mt-20 w-full border-t border-white/30 py-4 text-center text-sm text-white/80">
+        © <strong>Bińko-Bud.pl</strong>. Wszelkie prawa zastrzeżone. Projekt: <span className="text-white">Jakub Paszko</span>
+      </footer>
     </div>
   );
 };
