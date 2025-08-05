@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import BathroomImg from "../Assets/bathroom.png";
+import Livingroom from "../Assets/livingroom.png";
 import Painting from "../Assets/painting.png";
 import Elewacje from "../Assets/elewacje.png";
 
@@ -14,6 +15,10 @@ const Services = () => {
     {
       title: "Remont Łazienki",
       image: BathroomImg,
+    },
+    {
+      title: "Wykończenia Wnętrz",
+      image: Livingroom,
     },
     {
       title: "Malowanie",
@@ -30,7 +35,7 @@ const Services = () => {
       {/* Niewidoczny punkt kotwicy */}
       <span id="services" className="block absolute -top-20" aria-hidden="true"></span>
 
-      <h2 className="text-white text-4xl md:text-5xl font-bold text-center mb-10">
+      <h2 className="text-white text-4xl md:text-5xl font-bold text-center mb-10 sm:!pt-8">
         Nasze usługi
       </h2>
 
