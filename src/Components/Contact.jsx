@@ -13,6 +13,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [statusMessage, setStatusMessage] = useState(null);
   const [statusType, setStatusType] = useState(null); // 'success' | 'error'
+  const [isLoading, setIsLoading] = useState(false);
 
   const validate = () => {
     const newErrors = {};
@@ -44,6 +45,8 @@ const Contact = () => {
 
     if (!validate()) return;
 
+    setIsLoading(true);
+
     emailjs
       .sendForm(
         "service_nikqmd7",
@@ -51,21 +54,22 @@ const Contact = () => {
         form.current,
         "s_6XafTQeUcjEz-LL"
       )
-      .then(
-        () => {
-          setStatusMessage("Wiadomość została wysłana!");
-          setStatusType("success");
-          form.current.reset();
-          setFormValues({ name: "", email: "", message: "" });
-          setTimeout(() => setStatusMessage(null), 5000);
-        },
-        (error) => {
-          setStatusMessage("Błąd podczas wysyłania. Spróbuj ponownie.");
-          setStatusType("error");
-          console.error(error);
-          setTimeout(() => setStatusMessage(null), 5000);
-        }
-      );
+      .then(() => {
+        setStatusMessage("Wiadomość została wysłana!");
+        setStatusType("success");
+        form.current.reset();
+        setFormValues({ name: "", email: "", message: "" });
+        setTimeout(() => setStatusMessage(null), 5000);
+      })
+      .catch((error) => {
+        setStatusMessage("Błąd podczas wysyłania. Spróbuj ponownie.");
+        setStatusType("error");
+        console.error(error);
+        setTimeout(() => setStatusMessage(null), 5000);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -139,9 +143,14 @@ const Contact = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="px-10 py-2 border border-white text-white rounded-md hover:bg-white hover:text-[#1f3622] transition"
+            disabled={isLoading}
+            className={`px-10 py-2 border text-white rounded-md transition ${
+              isLoading
+                ? "bg-gray-600 cursor-not-allowed"
+                : "border-white hover:bg-white hover:text-[#1f3622]"
+            }`}
           >
-            Wyślij
+            {isLoading ? "Wysyłanie..." : "Wyślij"}
           </button>
         </div>
 
