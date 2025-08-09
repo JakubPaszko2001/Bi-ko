@@ -20,11 +20,12 @@ const Contact = () => {
     if (!formValues.name.trim()) newErrors.name = "Wpisz swoje imię i nazwisko.";
     if (!formValues.email.trim()) {
       newErrors.email = "Wpisz adres e-mail.";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formValues.email)
-    ) {
-      newErrors.email = "Niepoprawny adres e-mail.";
-    }
+      } else if (
+        !/^[A-Z0-9._%+\-ąćęłńóśżźĄĆĘŁŃÓŚŻŹ]+@[A-Z0-9.\-ąćęłńóśżźĄĆĘŁŃÓŚŻŹ]+\.[A-Z]{2,}$/i
+          .test(formValues.email.trim())
+      ) {
+        newErrors.email = "Niepoprawny adres e-mail.";
+      }
     if (!formValues.message.trim()) {
       newErrors.message = "Wpisz wiadomość.";
     } else if (formValues.message.trim().length < 10) {
@@ -171,7 +172,7 @@ const Contact = () => {
       <p className="mt-12 text-center text-lg px-4 max-w-5xl leading-relaxed">
         Zastanawiasz się nad modernizacją swojego domu lub miejsca pracy? Skontaktuj się z firmą Bińko-Bud i dowiedz się więcej. <br />
         <strong>Klepacka 6/6, 15-634 Białystok, Polska</strong> <br />
-        <strong>Email:</strong> danielczakjoanna53@gmail.com &nbsp;|&nbsp;
+        <strong>Email:</strong>binkobud12@gmail.com &nbsp;|&nbsp;
         <strong>Tel:</strong> 514 008 415
       </p>
 
